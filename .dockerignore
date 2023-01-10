@@ -12,4 +12,6 @@ lerna-debug.log*
 .git
 .cache
 
+fly.toml
+.dockerignore
 Dockerfile
