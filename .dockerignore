@@ -15,9 +15,9 @@ lerna-debug.log*
 fly.toml
 .dockerignore
 <<<<<<< HEAD
+<<<<<<< HEAD
 Dockerfile
 =======
 Dockerfile
 
 dist/
->>>>>>> 9e8e52c0acb073b32c72726084f31c0359481aa9
