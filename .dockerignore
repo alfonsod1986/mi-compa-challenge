@@ -15,3 +15,5 @@ lerna-debug.log*
 fly.toml
 .dockerignore
 Dockerfile
+
+dist/

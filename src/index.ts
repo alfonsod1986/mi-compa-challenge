@@ -1,12 +1,12 @@
-const express = require('express');
-const helmet = require('helmet');
+import express, {Express, Response, Request} from 'express';
+import helmet from 'helmet';
 
-const app = express();
+const app: Express = express();
 const port = process.env.PORT || 8080;
 
 app.use(helmet.hidePoweredBy());
 
-app.get('/', (req, res) => {
+app.get('/', (_req: Request, res: Response) => {
     res.json({ msg: 'Welcome to Xmen API Challenge'});
 });
 
