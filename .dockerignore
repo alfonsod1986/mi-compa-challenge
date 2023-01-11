@@ -14,10 +14,8 @@ lerna-debug.log*
 
 fly.toml
 .dockerignore
-<<<<<<< HEAD
-<<<<<<< HEAD
-Dockerfile
-=======
+docker-compose.yml
 Dockerfile
 
 dist/
+.husky/
