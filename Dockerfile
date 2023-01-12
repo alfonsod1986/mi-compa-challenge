@@ -4,6 +4,8 @@ WORKDIR /usr/src/app
 
 COPY package*.json ./
 
+RUN npm install -g npm@9.3.0
+
 RUN npm install
 
 COPY . .
@@ -18,6 +20,8 @@ ENV NODE_ENV=${NODE_ENV}
 WORKDIR /usr/src/app
 
 COPY package*.json ./
+
+RUN npm install -g npm@9.3.0
 
 RUN npm ci --omit=dev
 
