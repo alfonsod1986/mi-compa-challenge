@@ -8,6 +8,10 @@ import * as http from 'http';
 import httpStatus from 'http-status';
 import { registerRoutes } from './routes';
 
+const corsOptions: cors.CorsOptions = {
+  origin: '*'
+};
+
 export class Server {
   private express: Express;
   readonly port: string;
@@ -25,8 +29,11 @@ export class Server {
     this.express.use(helmet.frameguard({ action: 'deny' }));
     this.express.use(compress());
     const router = Router();
-    router.use(cors());
-    router.use(errorHandler());
+    router.use(cors(corsOptions));
+    if (process.env.NODE_ENV != 'production') {
+      router.use(errorHandler());
+    }
+
     this.express.use(router);
     registerRoutes(router);
 
