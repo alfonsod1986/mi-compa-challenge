@@ -1,0 +1,8 @@
+services:
+  Apps.Xmen.Backend.controllers.RootGetController:
+    class: ../../controllers/RootGetController
+    arguments: []
+  
+  Apps.Xmen.Backend.controllers.HealthCheckGetController:
+    class: ../../controllers/HealthCheckGetController
+    arguments: []
