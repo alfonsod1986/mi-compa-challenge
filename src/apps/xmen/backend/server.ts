@@ -5,6 +5,8 @@ import express, { Express, Request, Response } from 'express';
 import Router from 'express-promise-router';
 import helmet from 'helmet';
 import * as http from 'http';
+import Logger from '../../../contexts/shared/domain/Logger';
+import container from './di';
 import httpStatus from 'http-status';
 import { registerRoutes } from './routes';
 
@@ -15,10 +17,12 @@ const corsOptions: cors.CorsOptions = {
 export class Server {
   private express: Express;
   readonly port: string;
+  private logger: Logger;
   httpServer?: http.Server;
 
   constructor(port: string) {
     this.port = port;
+    this.logger = container.get('Shared.Logger');
     this.express = express();
 
     this.express.use(express.json());
@@ -38,7 +42,7 @@ export class Server {
     registerRoutes(router);
 
     router.use((err: Error, req: Request, res: Response, next: Function) => {
-      console.error(err);
+      this.logger.error(err);
       res.status(httpStatus.INTERNAL_SERVER_ERROR).send(err.message);
     });
   }
@@ -46,7 +50,7 @@ export class Server {
   async listen(): Promise<void> {
     return new Promise(resolve => {
       this.httpServer = this.express.listen(this.port, () => {
-        console.log(`  Backoffice Backend App is running on port ${this.port}`);
+        this.logger.info(`  Backoffice Backend App is running on port ${this.port}`);
         resolve();
       });
     });

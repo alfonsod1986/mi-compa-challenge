@@ -32,7 +32,8 @@
     "glob": "^8.0.3",
     "helmet": "^6.0.1",
     "http-status": "^1.6.2",
-    "node-dependency-injection": "^2.6.11"
+    "node-dependency-injection": "^2.6.11",
+    "winston": "^3.8.2"
   },
   "devDependencies": {
     "@types/compression": "^1.7.2",
