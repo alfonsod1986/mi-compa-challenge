@@ -11,7 +11,10 @@
     "noEmit": false,
     "resolveJsonModule": true,
     "noUnusedLocals": true,
-    "outDir": "./dist"
+    "outDir": "./dist",
+    "paths": {
+      "@context-shared/*": ["./src/contexts/shared/*"],
+    }
   },
   "include": [
     "src/**/**.ts",
