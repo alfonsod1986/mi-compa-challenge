@@ -16,9 +16,18 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - uses: actions/checkout@v2
         with:
           fetch-depth: 0
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+          cache: 'npm'
+      - name: Testing
+        run: npm run test:unit -- --coverage
+      - name: Install dependencies
+        run: npm install
+
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
         env:
