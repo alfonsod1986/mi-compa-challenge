@@ -6,15 +6,12 @@
     "noImplicitAny": true,
     "moduleResolution": "node",
     "sourceMap": false,
-    "rootDir": "./src",
+    "rootDir": "./",
     "strict": true,
     "noEmit": false,
     "resolveJsonModule": true,
     "noUnusedLocals": true,
-    "outDir": "./dist",
-    "paths": {
-      "@context-shared/*": ["./src/contexts/shared/*"],
-    }
+    "outDir": "./dist"
   },
   "include": [
     "src/**/**.ts",

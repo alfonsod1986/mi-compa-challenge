@@ -6,3 +6,11 @@ services:
   Apps.Xmen.Backend.controllers.HealthCheckGetController:
     class: ../../controllers/HealthCheckGetController
     arguments: []
+  
+  Apps.Xmen.Backend.controller.HumanPostController:
+    class: ../../controllers/HumanPostController
+    arguments: []
+  
+  Apps.Xmen.Backend.controller.HumanStatsGetController:
+    class: ../../controllers/HumanStatsGetController
+    arguments: []

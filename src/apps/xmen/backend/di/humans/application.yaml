@@ -1,0 +1,12 @@
+services:
+  Humans.Repository:
+    class: ../../../../../contexts/xmen/humans/infrastructure/persistence/mongo/MongoXmenHumanRepository
+    arguments: ['@Shared.ConnectionManager']
+
+  Humans.application.Creator:
+    class: ../../../../../contexts/xmen/humans/application/XmenHumanCreator
+    arguments: ['@Humans.Repository']
+  
+  Humans.application.Stats:
+    class: ../../../../../contexts/xmen/humans/application/XmenHumanStats
+    arguments: ['@Humans.Repository']
