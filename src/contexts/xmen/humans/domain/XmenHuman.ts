@@ -1,4 +1,4 @@
-import { AggregateRoot } from '@context-shared/domain/AggregateRoot';
+import { AggregateRoot } from '../../../shared/domain/AggregateRoot';
 import { XmenHumanId } from './value-object/XmenHumanId';
 
 export class XmenHuman extends AggregateRoot {

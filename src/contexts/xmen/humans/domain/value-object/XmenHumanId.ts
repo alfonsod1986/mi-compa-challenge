@@ -1,3 +1,3 @@
-import { Uuid } from '@context-shared/domain/value-object/Uuid';
+import { Uuid } from '../../../../shared/domain/value-object/Uuid';
 
 export class XmenHumanId extends Uuid {}
