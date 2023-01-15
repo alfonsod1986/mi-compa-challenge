@@ -50,7 +50,7 @@ export class Server {
   async listen(): Promise<void> {
     return new Promise(resolve => {
       this.httpServer = this.express.listen(this.port, () => {
-        this.logger.info(`  Backoffice Backend App is running on port ${this.port}`);
+        this.logger.info(`Xmen Backend App is running on port ${this.port}`);
         resolve();
       });
     });
