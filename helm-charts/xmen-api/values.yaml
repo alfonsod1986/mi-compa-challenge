@@ -6,7 +6,7 @@ fullnameOverride: ""
 backend:
   image:
     # -- Api image repository.
-    repository: localhost:5000/mi-compa-challenge
+    repository: alfonsod18/mi-compa-challenge
     # -- Api image tag @default -- `{{ .Chart.AppVersion }}`
     tag: "latest"
     # -- Api image pull policy.
