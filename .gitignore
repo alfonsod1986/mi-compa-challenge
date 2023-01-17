@@ -80,3 +80,17 @@ dist/
 .husky/
 
 .tmp/
+
+# Local .terraform directories
+**/.terraform/*
+# Terraform files
+.terraform
+terraform.tfvars
+.terragrunt-cache
+# .tfstate files
+*.tfstate
+*.tfstate.*
+# Folder used to store temporary test data by Terratest
+.test-data
+**/.terraform-version
+**/.terraform.lock.hcl
