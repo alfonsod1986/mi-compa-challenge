@@ -1,0 +1,9 @@
+apiVersion: v2
+name: xmen
+description: Helm chart for Xmen Api
+type: application
+version: 0.1.0
+appVersion: main
+keywords:
+  - xmen
+  - mi-compa-challenge

@@ -1,0 +1,120 @@
+# -- Override the name of the chart.
+nameOverride: ""
+# -- Override the fullname of the chart.
+fullnameOverride: ""
+
+backend:
+  image:
+    # -- Api image repository.
+    repository: alfonsod18/mi-compa-challenge
+    # -- Api image tag @default -- `{{ .Chart.AppVersion }}`
+    tag: "latest"
+    # -- Api image pull policy.
+    pullPolicy: IfNotPresent
+    # -- Api image pull secrets.
+    pullSecrets: []
+  
+  serviceAccount:
+    # -- Api if `true`, create a new service account.
+    create: true
+    # -- Api annotations to add to the service account
+    annotations: {}
+    # -- Api service account to be used. If not set and serviceAccount.create is true, a name is generated using the full name template.
+    name: ""
+  
+  autoscaling:
+    # -- Api if `true`, create a HPA for the deployment.
+    enabled: false
+    # -- Api minimum number of pod replicas.
+    minReplicas: 1
+    # -- Api maximum number of pod replicas.
+    maxReplicas: 3
+    # -- Api target CPU utilisation for the pod.
+    targetCPUUtilizationPercentage: 60
+    # -- Api target memory utilisation for the pod.
+    targetMemoryUtilizationPercentage:
+
+  # -- Api annotations to add to the pod.
+  podAnnotations: {}
+
+  # -- Api labels to add to the pod.
+  podLabels: {}
+
+  # -- Api security context for the container.
+  securityContext: {}
+
+  # -- Api security context for the pod.
+  podSecurityContext: {}
+
+  # -- Api priority class name to use.
+  priorityClassName: ""
+
+  livenessProbe:
+    httpGet:
+      path: /healthcheck
+      port: http
+      scheme: HTTP
+    initialDelaySeconds: 15
+    periodSeconds: 20
+
+  readinessProbe:
+    httpGet:
+      path: /healthcheck
+      port: http
+      scheme: HTTP
+    initialDelaySeconds: 15
+    periodSeconds: 20
+
+  service:
+    # -- Api service type.
+    type: ClusterIP
+    # -- Api annotations to add to the service.
+    annotations: {}
+    # --  Service port.
+    port: 8080
+
+  ingress:
+    # -- Api if `true`, create an ingress object.
+    enabled: false
+    # -- Api ingress annotations.
+    annotations: {}
+    # -- Api ingress class to use.
+    ingressClassName: ""
+    # -- Api ingress hosts.
+    hosts: []
+    # -- Api ingress TLS configuration
+    tls: []
+
+  # -- Api resource requests and limits for the clamav container.
+  resources: {}
+  # We usually recommend not to specify default resources and to leave this as a conscious
+  # choice for the user. This also increases chances charts run on environments with little
+  # resources, such as Minikube. If you do want to specify resources, uncomment the following
+  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+  #   requests:
+  #     cpu: 100m
+  #     memory: 128Mi
+  #   limits:
+  #     cpu: 100m
+  #     memory: 128Mi
+
+  # -- Api number of replicas to create.
+  replicaCount: 1
+
+  # -- Api node labels for pod assignment.
+  nodeSelector: {}
+
+  # -- Api tolerations for pod assignment.
+  tolerations: []
+
+  # -- Api affinity for pod assignment.
+  affinity: {}
+
+  # -- Api environment variables for the container.
+  env:
+    - name: PORT
+      value: '8080'
+    
+    - name: MONGO_URL
+      value: 'mongodb://user:password@db:27017/xmen?authSource=admin'
+    
